@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .login-form {
+            max-width: 500px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #cccccc;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .btn-login {
+            background-color: #4dabf5;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-login:hover {
+            background-color: #3c9dbb;
+        }
+    </style>
+</head>
+<body>
+<div class="login-form">
+    <form action="#" th:action="@{/verifyOTP}" method="post" th:object="${user}">
+        <div class="form-group">
+            <label for="otp">OTP</label>
+            <input type="text" name="otp" id="otp" th:field = "*{otp}" required>
+            <input type="text" name="phoneNumber" id="phoneNumber" th:field = "*{phoneNumber}" hidden>
+        </div>
+        <input type="submit" value="Submit" class="btn-login">
+    </form>
+</div>
+</body>
+</html>
